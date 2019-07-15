@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
 namespace Xamarin_Android_Multi_Page_App
 {
@@ -20,7 +21,18 @@ namespace Xamarin_Android_Multi_Page_App
             // and attach an event to it
             Button button = FindViewById<Button>(Resource.Id.myButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+
+            //イベントハンドラーを変更する。
+            //delegateキーワードを使わず別メソッドとしてイベントハンドラーを用意する。
+            //button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            button.Click += Button_Click;
+        }
+
+        private void Button_Click(object sender, System.EventArgs e)
+        {
+            //新しいActivityを開始する。
+            Intent intent = new Intent(this, typeof(SubActivity));
+            StartActivity(intent);
         }
     }
 }
