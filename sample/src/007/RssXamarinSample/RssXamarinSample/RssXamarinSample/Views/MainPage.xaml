@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:RssXamarinSample.Behaviors"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RssXamarinSample.Views.MainPage"
+             Title="MainPage">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+    
+    <ListView x:Name="listView" ItemsSource="{Binding articleList}">
+        
+        <ListView.Behaviors>
+            <behaviors:ListViewSelectedItemBehavior Command="{Binding listViewChangeCommand}" />
+        </ListView.Behaviors>
+        
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Path=title}" />
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

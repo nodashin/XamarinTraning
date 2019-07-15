@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="Forms_Multi_Page.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Forms_Multi_Page.UWP"
+    RequestedTheme="Light">
+
+</Application>
